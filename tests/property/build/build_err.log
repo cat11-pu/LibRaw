@@ -1,0 +1,39 @@
+/home/cat/gsb/uid3957/src/metadata/fuji.cpp: In member function ‘void LibRaw::parseFujiMakernotes(unsigned int, unsigned int, unsigned int, unsigned int)’:
+/home/cat/gsb/uid3957/src/metadata/fuji.cpp:1010:39: warning: ‘%s’ directive output may be truncated writing up to 15 bytes into a region of size between 0 and 63 [-Wformat-truncation=]
+ 1010 |               tbuf, sizeof(tbuf), "%s %s %d:%s:%s %s",
+      |                                       ^~
+ 1011 |               imgdata.shootinginfo.InternalBodySerial, ystr, year, mm, dd,
+      |                                                        ~~~~
+/home/cat/gsb/uid3957/src/metadata/fuji.cpp:1010:35: note: directive argument in the range [64, 2769]
+ 1010 |               tbuf, sizeof(tbuf), "%s %s %d:%s:%s %s",
+      |                                   ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/stdio.h:974,
+                 from /home/cat/gsb/uid3957/libraw/libraw.h:38,
+                 from /home/cat/gsb/uid3957/src/metadata/../../internal/dcraw_defs.h:22,
+                 from /home/cat/gsb/uid3957/src/metadata/fuji.cpp:19:
+In function ‘int snprintf(char*, size_t, const char*, ...)’,
+    inlined from ‘void LibRaw::parseFujiMakernotes(unsigned int, unsigned int, unsigned int, unsigned int)’ at /home/cat/gsb/uid3957/src/metadata/fuji.cpp:1009:19:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:35: note: ‘__builtin___snprintf_chk’ output 8 or more bytes (assuming 92) into a destination of size 64
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+/home/cat/gsb/uid3957/src/metadata/fuji.cpp: In member function ‘void LibRaw::parseFujiMakernotes(unsigned int, unsigned int, unsigned int, unsigned int)’:
+/home/cat/gsb/uid3957/src/metadata/fuji.cpp:932:45: warning: ‘ ’ directive output may be truncated writing 1 byte into a region of size between 0 and 63 [-Wformat-truncation=]
+  932 |           snprintf(tbuf, sizeof(tbuf)-1, "%s %s",
+      |                                             ^
+In function ‘int snprintf(char*, size_t, const char*, ...)’,
+    inlined from ‘void LibRaw::parseFujiMakernotes(unsigned int, unsigned int, unsigned int, unsigned int)’ at /home/cat/gsb/uid3957/src/metadata/fuji.cpp:932:19:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:68:35: note: ‘__builtin___snprintf_chk’ output 2 or more bytes (assuming 65) into a destination of size 63
+   68 |   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   69 |                                    __glibc_objsize (__s), __fmt,
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   70 |                                    __va_arg_pack ());
+      |                                    ~~~~~~~~~~~~~~~~~
+/home/cat/gsb/uid3957/src/preprocessing/ext_preprocess.cpp: In member function ‘void LibRaw::subtract(const char*)’:
+/home/cat/gsb/uid3957/src/preprocessing/ext_preprocess.cpp:120:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  120 |     fread(pixel.data(), 2, width, fp);
+      |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~

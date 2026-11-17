@@ -1,0 +1,14 @@
+{
+ "file": "malformed_065.dng",
+ "status": "FIXED (regression artifact, now passes)",
+ "base": "valid_15.dng",
+ "mutation": "misalign",
+ "offsets": [
+  {"offset": 270, "tag": 50721, "detail": "ColorMatrix1 value-offset -> 4"},
+  {"offset": 114, "tag": 273, "detail": "StripOffsets value-offset -> 4"},
+  {"offset": 246, "tag": 50714, "detail": "BlackLevel value-offset -> 2"}
+ ],
+ "failure": "undefined-behavior (signed integer overflow)",
+ "diagnostic": "src/demosaic/ahd_demosaic.cpp:215: SQR() of short difference up to 65535 overflows int (48521*48521). Redirected StripOffsets made LibRaw decode header bytes as pixels, feeding extreme values into AHD demosaic.",
+ "fix": "abdiff/abeps widened to unsigned long long; SQR arguments cast to long long in ahd_interpolate_build_homogeneity_map()"
+}

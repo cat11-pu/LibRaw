@@ -1,0 +1,502 @@
+[
+ {
+  "file": "valid_00.dng",
+  "width": 22,
+  "height": 22,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1000
+ },
+ {
+  "file": "valid_01.dng",
+  "width": 24,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1001
+ },
+ {
+  "file": "valid_02.dng",
+  "width": 32,
+  "height": 32,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1002
+ },
+ {
+  "file": "valid_03.dng",
+  "width": 31,
+  "height": 27,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1003
+ },
+ {
+  "file": "valid_04.dng",
+  "width": 64,
+  "height": 48,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1004
+ },
+ {
+  "file": "valid_05.dng",
+  "width": 100,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1005
+ },
+ {
+  "file": "valid_06.dng",
+  "width": 129,
+  "height": 65,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1006
+ },
+ {
+  "file": "valid_07.dng",
+  "width": 256,
+  "height": 192,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1007
+ },
+ {
+  "file": "valid_08.dng",
+  "width": 320,
+  "height": 240,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1008
+ },
+ {
+  "file": "valid_09.dng",
+  "width": 511,
+  "height": 257,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1009
+ },
+ {
+  "file": "valid_10.dng",
+  "width": 640,
+  "height": 480,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1010
+ },
+ {
+  "file": "valid_11.dng",
+  "width": 1024,
+  "height": 768,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1011
+ },
+ {
+  "file": "valid_12.dng",
+  "width": 22,
+  "height": 22,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1012
+ },
+ {
+  "file": "valid_13.dng",
+  "width": 24,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1013
+ },
+ {
+  "file": "valid_14.dng",
+  "width": 32,
+  "height": 32,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1014
+ },
+ {
+  "file": "valid_15.dng",
+  "width": 31,
+  "height": 27,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1015
+ },
+ {
+  "file": "valid_16.dng",
+  "width": 64,
+  "height": 48,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1016
+ },
+ {
+  "file": "valid_17.dng",
+  "width": 100,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1017
+ },
+ {
+  "file": "valid_18.dng",
+  "width": 129,
+  "height": 65,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1018
+ },
+ {
+  "file": "valid_19.dng",
+  "width": 256,
+  "height": 192,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1019
+ },
+ {
+  "file": "valid_20.dng",
+  "width": 320,
+  "height": 240,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1020
+ },
+ {
+  "file": "valid_21.dng",
+  "width": 511,
+  "height": 257,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1021
+ },
+ {
+  "file": "valid_22.dng",
+  "width": 640,
+  "height": 480,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1022
+ },
+ {
+  "file": "valid_23.dng",
+  "width": 1024,
+  "height": 768,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1023
+ },
+ {
+  "file": "valid_24.dng",
+  "width": 22,
+  "height": 22,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1024
+ },
+ {
+  "file": "valid_25.dng",
+  "width": 24,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1025
+ },
+ {
+  "file": "valid_26.dng",
+  "width": 32,
+  "height": 32,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1026
+ },
+ {
+  "file": "valid_27.dng",
+  "width": 31,
+  "height": 27,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1027
+ },
+ {
+  "file": "valid_28.dng",
+  "width": 64,
+  "height": 48,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1028
+ },
+ {
+  "file": "valid_29.dng",
+  "width": 100,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1029
+ },
+ {
+  "file": "valid_30.dng",
+  "width": 129,
+  "height": 65,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1030
+ },
+ {
+  "file": "valid_31.dng",
+  "width": 256,
+  "height": 192,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1031
+ },
+ {
+  "file": "valid_32.dng",
+  "width": 320,
+  "height": 240,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1032
+ },
+ {
+  "file": "valid_33.dng",
+  "width": 511,
+  "height": 257,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1033
+ },
+ {
+  "file": "valid_34.dng",
+  "width": 640,
+  "height": 480,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1034
+ },
+ {
+  "file": "valid_35.dng",
+  "width": 1024,
+  "height": 768,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1035
+ },
+ {
+  "file": "valid_36.dng",
+  "width": 22,
+  "height": 22,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1036
+ },
+ {
+  "file": "valid_37.dng",
+  "width": 24,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1037
+ },
+ {
+  "file": "valid_38.dng",
+  "width": 32,
+  "height": 32,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1038
+ },
+ {
+  "file": "valid_39.dng",
+  "width": 31,
+  "height": 27,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1039
+ },
+ {
+  "file": "valid_40.dng",
+  "width": 64,
+  "height": 48,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1040
+ },
+ {
+  "file": "valid_41.dng",
+  "width": 100,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1041
+ },
+ {
+  "file": "valid_42.dng",
+  "width": 129,
+  "height": 65,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1042
+ },
+ {
+  "file": "valid_43.dng",
+  "width": 256,
+  "height": 192,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1043
+ },
+ {
+  "file": "valid_44.dng",
+  "width": 320,
+  "height": 240,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1044
+ },
+ {
+  "file": "valid_45.dng",
+  "width": 511,
+  "height": 257,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1045
+ },
+ {
+  "file": "valid_46.dng",
+  "width": 640,
+  "height": 480,
+  "bits": 16,
+  "cfa": "GRBG",
+  "black": 64,
+  "white": 65535,
+  "seed": 1046
+ },
+ {
+  "file": "valid_47.dng",
+  "width": 1024,
+  "height": 768,
+  "bits": 8,
+  "cfa": "GBRG",
+  "black": 60,
+  "white": 255,
+  "seed": 1047
+ },
+ {
+  "file": "valid_48.dng",
+  "width": 22,
+  "height": 22,
+  "bits": 16,
+  "cfa": "RGGB",
+  "black": 0,
+  "white": 65535,
+  "seed": 1048
+ },
+ {
+  "file": "valid_49.dng",
+  "width": 24,
+  "height": 23,
+  "bits": 8,
+  "cfa": "BGGR",
+  "black": 4,
+  "white": 255,
+  "seed": 1049
+ }
+]

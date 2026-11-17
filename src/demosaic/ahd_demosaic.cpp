@@ -183,7 +183,8 @@ void LibRaw::ahd_interpolate_build_homogeneity_map(
   short(*lix)[3];
   short(*lixs[2])[3];
   short *adjacent_lix;
-  unsigned ldiff[2][4], abdiff[2][4], leps, abeps;
+  unsigned ldiff[2][4], leps;
+  unsigned long long abdiff[2][4], abeps;
   static const int dir[4] = {-1, 1, -LIBRAW_AHD_TILE, LIBRAW_AHD_TILE};
   const int rowlimit = MIN(top + LIBRAW_AHD_TILE - 2, height - 4);
   const int collimit = MIN(left + LIBRAW_AHD_TILE - 2, width - 4);
@@ -212,8 +213,8 @@ void LibRaw::ahd_interpolate_build_homogeneity_map(
         {
           adjacent_lix = lix[dir[i]];
           ldiff[direction][i] = ABS(lix[0][0] - adjacent_lix[0]);
-          abdiff[direction][i] = SQR(lix[0][1] - adjacent_lix[1]) +
-                                 SQR(lix[0][2] - adjacent_lix[2]);
+          abdiff[direction][i] = SQR((long long)(lix[0][1] - adjacent_lix[1])) +
+                                 SQR((long long)(lix[0][2] - adjacent_lix[2]));
         }
       }
       leps = MIN(MAX(ldiff[0][0], ldiff[0][1]), MAX(ldiff[1][2], ldiff[1][3]));

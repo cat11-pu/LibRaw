@@ -1,0 +1,4807 @@
+[
+ {
+  "file": "malformed_000.dng",
+  "base": "valid_00.dng",
+  "mutation": "truncate",
+  "size": 1046,
+  "offsets": [
+   {
+    "offset": 1046,
+    "detail": "truncate to 1046 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_001.dng",
+  "base": "valid_01.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 5"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 1"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 200582"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_002.dng",
+  "base": "valid_02.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_003.dng",
+  "base": "valid_03.dng",
+  "mutation": "compression",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 6"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 32"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_004.dng",
+  "base": "valid_04.dng",
+  "mutation": "truncate",
+  "size": 11,
+  "offsets": [
+   {
+    "offset": 11,
+    "detail": "truncate to 11 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_005.dng",
+  "base": "valid_05.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 565968"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 284761"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 168386"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_006.dng",
+  "base": "valid_06.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_007.dng",
+  "base": "valid_07.dng",
+  "mutation": "compression+truncate",
+  "size": 42,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 65535"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 14"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 65535"
+   },
+   {
+    "offset": 42,
+    "detail": "truncate to 42 of 49588 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_008.dng",
+  "base": "valid_08.dng",
+  "mutation": "truncate",
+  "size": 76428,
+  "offsets": [
+   {
+    "offset": 76428,
+    "detail": "truncate to 76428 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_009.dng",
+  "base": "valid_09.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 6"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 5"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 36789"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 279"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_010.dng",
+  "base": "valid_10.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_011.dng",
+  "base": "valid_11.dng",
+  "mutation": "compression",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 7"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_012.dng",
+  "base": "valid_12.dng",
+  "mutation": "truncate",
+  "size": 705,
+  "offsets": [
+   {
+    "offset": 705,
+    "detail": "truncate to 705 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_013.dng",
+  "base": "valid_13.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 659"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 2"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 0"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_014.dng",
+  "base": "valid_14.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_015.dng",
+  "base": "valid_15.dng",
+  "mutation": "compression+truncate",
+  "size": 873,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 8"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 873,
+    "detail": "truncate to 873 of 1273 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_016.dng",
+  "base": "valid_16.dng",
+  "mutation": "truncate",
+  "size": 12,
+  "offsets": [
+   {
+    "offset": 12,
+    "detail": "truncate to 12 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_017.dng",
+  "base": "valid_17.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 414991"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 601"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 310609"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_018.dng",
+  "base": "valid_18.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_019.dng",
+  "base": "valid_19.dng",
+  "mutation": "compression",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 6"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_020.dng",
+  "base": "valid_20.dng",
+  "mutation": "truncate",
+  "size": 5,
+  "offsets": [
+   {
+    "offset": 5,
+    "detail": "truncate to 5 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_021.dng",
+  "base": "valid_21.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 34355"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 107795"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 859320"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_022.dng",
+  "base": "valid_22.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_023.dng",
+  "base": "valid_23.dng",
+  "mutation": "compression+truncate",
+  "size": 12,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 99"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 6"
+   },
+   {
+    "offset": 12,
+    "detail": "truncate to 12 of 786868 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_024.dng",
+  "base": "valid_24.dng",
+  "mutation": "truncate",
+  "size": 777,
+  "offsets": [
+   {
+    "offset": 777,
+    "detail": "truncate to 777 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_025.dng",
+  "base": "valid_25.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 199"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 439"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 83"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 279"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_026.dng",
+  "base": "valid_26.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_027.dng",
+  "base": "valid_27.dng",
+  "mutation": "compression",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32773"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_028.dng",
+  "base": "valid_28.dng",
+  "mutation": "truncate",
+  "size": 3508,
+  "offsets": [
+   {
+    "offset": 3508,
+    "detail": "truncate to 3508 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_029.dng",
+  "base": "valid_29.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 3"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 4"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 1409"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_030.dng",
+  "base": "valid_30.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_031.dng",
+  "base": "valid_31.dng",
+  "mutation": "compression+truncate",
+  "size": 47828,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   },
+   {
+    "offset": 47828,
+    "detail": "truncate to 47828 of 49588 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_032.dng",
+  "base": "valid_32.dng",
+  "mutation": "truncate",
+  "size": 144562,
+  "offsets": [
+   {
+    "offset": 144562,
+    "detail": "truncate to 144562 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_033.dng",
+  "base": "valid_33.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 71261"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 7"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 466827"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_034.dng",
+  "base": "valid_34.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 4294967295"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_035.dng",
+  "base": "valid_35.dng",
+  "mutation": "compression",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 99"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 24"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_036.dng",
+  "base": "valid_36.dng",
+  "mutation": "truncate",
+  "size": 862,
+  "offsets": [
+   {
+    "offset": 862,
+    "detail": "truncate to 862 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_037.dng",
+  "base": "valid_37.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 703404"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 831"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 2"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_038.dng",
+  "base": "valid_38.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_039.dng",
+  "base": "valid_39.dng",
+  "mutation": "compression+truncate",
+  "size": 11,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 7"
+   },
+   {
+    "offset": 11,
+    "detail": "truncate to 11 of 1273 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_040.dng",
+  "base": "valid_40.dng",
+  "mutation": "truncate",
+  "size": 32,
+  "offsets": [
+   {
+    "offset": 32,
+    "detail": "truncate to 32 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_041.dng",
+  "base": "valid_41.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 1"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 778371"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 181356"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_042.dng",
+  "base": "valid_42.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_043.dng",
+  "base": "valid_43.dng",
+  "mutation": "compression",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 6"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 2"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_044.dng",
+  "base": "valid_44.dng",
+  "mutation": "truncate",
+  "size": 61139,
+  "offsets": [
+   {
+    "offset": 61139,
+    "detail": "truncate to 61139 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_045.dng",
+  "base": "valid_45.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 223861"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 6"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 552898"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_046.dng",
+  "base": "valid_46.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_047.dng",
+  "base": "valid_47.dng",
+  "mutation": "compression+truncate",
+  "size": 38,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 6"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 38,
+    "detail": "truncate to 38 of 786868 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_048.dng",
+  "base": "valid_48.dng",
+  "mutation": "truncate",
+  "size": 1139,
+  "offsets": [
+   {
+    "offset": 1139,
+    "detail": "truncate to 1139 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_049.dng",
+  "base": "valid_49.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 920499"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 281818"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 155558"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_050.dng",
+  "base": "valid_00.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_051.dng",
+  "base": "valid_01.dng",
+  "mutation": "compression",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 65535"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 14"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_052.dng",
+  "base": "valid_02.dng",
+  "mutation": "truncate",
+  "size": 1553,
+  "offsets": [
+   {
+    "offset": 1553,
+    "detail": "truncate to 1553 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_053.dng",
+  "base": "valid_03.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 247"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 778017"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 1167"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_054.dng",
+  "base": "valid_04.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_055.dng",
+  "base": "valid_05.dng",
+  "mutation": "compression+truncate",
+  "size": 35,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 65535"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 2"
+   },
+   {
+    "offset": 35,
+    "detail": "truncate to 35 of 2736 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_056.dng",
+  "base": "valid_06.dng",
+  "mutation": "truncate",
+  "size": 6599,
+  "offsets": [
+   {
+    "offset": 6599,
+    "detail": "truncate to 6599 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_057.dng",
+  "base": "valid_07.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 2"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 556935"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 1367"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_058.dng",
+  "base": "valid_08.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_059.dng",
+  "base": "valid_09.dng",
+  "mutation": "compression",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 65535"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_060.dng",
+  "base": "valid_10.dng",
+  "mutation": "truncate",
+  "size": 13752,
+  "offsets": [
+   {
+    "offset": 13752,
+    "detail": "truncate to 13752 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_061.dng",
+  "base": "valid_11.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 1"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 2"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 1649088"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_062.dng",
+  "base": "valid_12.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_063.dng",
+  "base": "valid_13.dng",
+  "mutation": "compression+truncate",
+  "size": 18,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 1"
+   },
+   {
+    "offset": 18,
+    "detail": "truncate to 18 of 988 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_064.dng",
+  "base": "valid_14.dng",
+  "mutation": "truncate",
+  "size": 1292,
+  "offsets": [
+   {
+    "offset": 1292,
+    "detail": "truncate to 1292 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_065.dng",
+  "base": "valid_15.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 4"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 4"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 2"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_066.dng",
+  "base": "valid_16.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_067.dng",
+  "base": "valid_17.dng",
+  "mutation": "compression",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 99"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_068.dng",
+  "base": "valid_18.dng",
+  "mutation": "truncate",
+  "size": 7312,
+  "offsets": [
+   {
+    "offset": 7312,
+    "detail": "truncate to 7312 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_069.dng",
+  "base": "valid_19.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 978817"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 474316"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 890121"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_070.dng",
+  "base": "valid_20.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_071.dng",
+  "base": "valid_21.dng",
+  "mutation": "compression+truncate",
+  "size": 19,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 65535"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 2"
+   },
+   {
+    "offset": 19,
+    "detail": "truncate to 19 of 131763 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_072.dng",
+  "base": "valid_22.dng",
+  "mutation": "truncate",
+  "size": 74589,
+  "offsets": [
+   {
+    "offset": 74589,
+    "detail": "truncate to 74589 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_073.dng",
+  "base": "valid_23.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 2"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 567633"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 108511"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_074.dng",
+  "base": "valid_24.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_075.dng",
+  "base": "valid_25.dng",
+  "mutation": "compression",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 24"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 6"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_076.dng",
+  "base": "valid_26.dng",
+  "mutation": "truncate",
+  "size": 2061,
+  "offsets": [
+   {
+    "offset": 2061,
+    "detail": "truncate to 2061 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_077.dng",
+  "base": "valid_27.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 4"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 4"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 13"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_078.dng",
+  "base": "valid_28.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_079.dng",
+  "base": "valid_29.dng",
+  "mutation": "compression+truncate",
+  "size": 1352,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 7"
+   },
+   {
+    "offset": 1352,
+    "detail": "truncate to 1352 of 2736 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_080.dng",
+  "base": "valid_30.dng",
+  "mutation": "truncate",
+  "size": 9362,
+  "offsets": [
+   {
+    "offset": 9362,
+    "detail": "truncate to 9362 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_081.dng",
+  "base": "valid_31.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 470549"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 229141"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 10823"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_082.dng",
+  "base": "valid_32.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_083.dng",
+  "base": "valid_33.dng",
+  "mutation": "compression",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 8"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 6"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_084.dng",
+  "base": "valid_34.dng",
+  "mutation": "truncate",
+  "size": 544093,
+  "offsets": [
+   {
+    "offset": 544093,
+    "detail": "truncate to 544093 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_085.dng",
+  "base": "valid_35.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 5"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 2"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 788396"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_086.dng",
+  "base": "valid_36.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_087.dng",
+  "base": "valid_37.dng",
+  "mutation": "compression+truncate",
+  "size": 32,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 8"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   },
+   {
+    "offset": 32,
+    "detail": "truncate to 32 of 988 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_088.dng",
+  "base": "valid_38.dng",
+  "mutation": "truncate",
+  "size": 1450,
+  "offsets": [
+   {
+    "offset": 1450,
+    "detail": "truncate to 1450 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_089.dng",
+  "base": "valid_39.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 527"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 605"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 115756"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 4120"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_090.dng",
+  "base": "valid_40.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_091.dng",
+  "base": "valid_41.dng",
+  "mutation": "compression",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 24"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_092.dng",
+  "base": "valid_42.dng",
+  "mutation": "truncate",
+  "size": 14760,
+  "offsets": [
+   {
+    "offset": 14760,
+    "detail": "truncate to 14760 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_093.dng",
+  "base": "valid_43.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 43719"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 173"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 678694"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_094.dng",
+  "base": "valid_44.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_095.dng",
+  "base": "valid_45.dng",
+  "mutation": "compression+truncate",
+  "size": 63,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   },
+   {
+    "offset": 63,
+    "detail": "truncate to 63 of 131763 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_096.dng",
+  "base": "valid_46.dng",
+  "mutation": "truncate",
+  "size": 557442,
+  "offsets": [
+   {
+    "offset": 557442,
+    "detail": "truncate to 557442 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_097.dng",
+  "base": "valid_47.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 1058298"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 1169647"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 1410222"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_098.dng",
+  "base": "valid_48.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_099.dng",
+  "base": "valid_49.dng",
+  "mutation": "compression",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32773"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 14"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 65535"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_100.dng",
+  "base": "valid_00.dng",
+  "mutation": "truncate",
+  "size": 473,
+  "offsets": [
+   {
+    "offset": 473,
+    "detail": "truncate to 473 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_101.dng",
+  "base": "valid_01.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 0"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 7"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 743534"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_102.dng",
+  "base": "valid_02.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_103.dng",
+  "base": "valid_03.dng",
+  "mutation": "compression+truncate",
+  "size": 583,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 99"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 65535"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   },
+   {
+    "offset": 583,
+    "detail": "truncate to 583 of 1273 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_104.dng",
+  "base": "valid_04.dng",
+  "mutation": "truncate",
+  "size": 2814,
+  "offsets": [
+   {
+    "offset": 2814,
+    "detail": "truncate to 2814 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_105.dng",
+  "base": "valid_05.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 731513"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 177854"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 777244"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 25"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_106.dng",
+  "base": "valid_06.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_107.dng",
+  "base": "valid_07.dng",
+  "mutation": "compression",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 14"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_108.dng",
+  "base": "valid_08.dng",
+  "mutation": "truncate",
+  "size": 102271,
+  "offsets": [
+   {
+    "offset": 102271,
+    "detail": "truncate to 102271 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_109.dng",
+  "base": "valid_09.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 144679"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 963526"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 826286"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_110.dng",
+  "base": "valid_10.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_111.dng",
+  "base": "valid_11.dng",
+  "mutation": "compression+truncate",
+  "size": 28,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 1"
+   },
+   {
+    "offset": 28,
+    "detail": "truncate to 28 of 786868 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_112.dng",
+  "base": "valid_12.dng",
+  "mutation": "truncate",
+  "size": 1394,
+  "offsets": [
+   {
+    "offset": 1394,
+    "detail": "truncate to 1394 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_113.dng",
+  "base": "valid_13.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 987"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 2"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 405"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 4120"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_114.dng",
+  "base": "valid_14.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_115.dng",
+  "base": "valid_15.dng",
+  "mutation": "compression",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 1"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_116.dng",
+  "base": "valid_16.dng",
+  "mutation": "truncate",
+  "size": 4963,
+  "offsets": [
+   {
+    "offset": 4963,
+    "detail": "truncate to 4963 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_117.dng",
+  "base": "valid_17.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 1"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 502893"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 2045"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_118.dng",
+  "base": "valid_18.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_119.dng",
+  "base": "valid_19.dng",
+  "mutation": "compression+truncate",
+  "size": 53,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 65535"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   },
+   {
+    "offset": 53,
+    "detail": "truncate to 53 of 49588 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_120.dng",
+  "base": "valid_20.dng",
+  "mutation": "truncate",
+  "size": 57090,
+  "offsets": [
+   {
+    "offset": 57090,
+    "detail": "truncate to 57090 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_121.dng",
+  "base": "valid_21.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 1"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 538420"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 0"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_122.dng",
+  "base": "valid_22.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 4294967295"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_123.dng",
+  "base": "valid_23.dng",
+  "mutation": "compression",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_124.dng",
+  "base": "valid_24.dng",
+  "mutation": "truncate",
+  "size": 1045,
+  "offsets": [
+   {
+    "offset": 1045,
+    "detail": "truncate to 1045 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_125.dng",
+  "base": "valid_25.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 7"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 95"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 5"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_126.dng",
+  "base": "valid_26.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_127.dng",
+  "base": "valid_27.dng",
+  "mutation": "compression+truncate",
+  "size": 59,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 7"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   },
+   {
+    "offset": 59,
+    "detail": "truncate to 59 of 1273 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_128.dng",
+  "base": "valid_28.dng",
+  "mutation": "truncate",
+  "size": 25,
+  "offsets": [
+   {
+    "offset": 25,
+    "detail": "truncate to 25 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_129.dng",
+  "base": "valid_29.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 185178"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 23849"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 454915"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_130.dng",
+  "base": "valid_30.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_131.dng",
+  "base": "valid_31.dng",
+  "mutation": "compression",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 1"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_132.dng",
+  "base": "valid_32.dng",
+  "mutation": "truncate",
+  "size": 98063,
+  "offsets": [
+   {
+    "offset": 98063,
+    "detail": "truncate to 98063 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_133.dng",
+  "base": "valid_33.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 510809"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 4"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 821569"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 4120"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_134.dng",
+  "base": "valid_34.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_135.dng",
+  "base": "valid_35.dng",
+  "mutation": "compression+truncate",
+  "size": 659168,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   },
+   {
+    "offset": 659168,
+    "detail": "truncate to 659168 of 786868 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_136.dng",
+  "base": "valid_36.dng",
+  "mutation": "truncate",
+  "size": 46,
+  "offsets": [
+   {
+    "offset": 46,
+    "detail": "truncate to 46 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_137.dng",
+  "base": "valid_37.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 0"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 160449"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 937"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_138.dng",
+  "base": "valid_38.dng",
+  "mutation": "oversize",
+  "size": 2484,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_139.dng",
+  "base": "valid_39.dng",
+  "mutation": "compression",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_140.dng",
+  "base": "valid_40.dng",
+  "mutation": "truncate",
+  "size": 4432,
+  "offsets": [
+   {
+    "offset": 4432,
+    "detail": "truncate to 4432 of 6580 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_141.dng",
+  "base": "valid_41.dng",
+  "mutation": "misalign",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 2471"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 0"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 6"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_142.dng",
+  "base": "valid_42.dng",
+  "mutation": "oversize",
+  "size": 17206,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_143.dng",
+  "base": "valid_43.dng",
+  "mutation": "compression+truncate",
+  "size": 25575,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   },
+   {
+    "offset": 25575,
+    "detail": "truncate to 25575 of 49588 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_144.dng",
+  "base": "valid_44.dng",
+  "mutation": "truncate",
+  "size": 15,
+  "offsets": [
+   {
+    "offset": 15,
+    "detail": "truncate to 15 of 154036 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_145.dng",
+  "base": "valid_45.dng",
+  "mutation": "misalign",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 999885"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 1"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 996728"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_146.dng",
+  "base": "valid_46.dng",
+  "mutation": "oversize",
+  "size": 614836,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_147.dng",
+  "base": "valid_47.dng",
+  "mutation": "compression",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 65535"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 64"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_148.dng",
+  "base": "valid_48.dng",
+  "mutation": "truncate",
+  "size": 682,
+  "offsets": [
+   {
+    "offset": 682,
+    "detail": "truncate to 682 of 1404 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_149.dng",
+  "base": "valid_49.dng",
+  "mutation": "misalign",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 2"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 7"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 873"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 279"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_150.dng",
+  "base": "valid_00.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_151.dng",
+  "base": "valid_01.dng",
+  "mutation": "compression+truncate",
+  "size": 793,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 8"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 2"
+   },
+   {
+    "offset": 793,
+    "detail": "truncate to 793 of 988 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_152.dng",
+  "base": "valid_02.dng",
+  "mutation": "truncate",
+  "size": 2199,
+  "offsets": [
+   {
+    "offset": 2199,
+    "detail": "truncate to 2199 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_153.dng",
+  "base": "valid_03.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 865602"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 1103"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 3"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_154.dng",
+  "base": "valid_04.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 4294967295"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_155.dng",
+  "base": "valid_05.dng",
+  "mutation": "compression",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 3"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 1"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_156.dng",
+  "base": "valid_06.dng",
+  "mutation": "truncate",
+  "size": 23,
+  "offsets": [
+   {
+    "offset": 23,
+    "detail": "truncate to 23 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_157.dng",
+  "base": "valid_07.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 7"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 1"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 7"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_158.dng",
+  "base": "valid_08.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_159.dng",
+  "base": "valid_09.dng",
+  "mutation": "compression+truncate",
+  "size": 93858,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 1"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 6"
+   },
+   {
+    "offset": 93858,
+    "detail": "truncate to 93858 of 131763 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_160.dng",
+  "base": "valid_10.dng",
+  "mutation": "truncate",
+  "size": 5053,
+  "offsets": [
+   {
+    "offset": 5053,
+    "detail": "truncate to 5053 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_161.dng",
+  "base": "valid_11.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 4"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 517671"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 1288194"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_162.dng",
+  "base": "valid_12.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_163.dng",
+  "base": "valid_13.dng",
+  "mutation": "compression",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 32"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 6"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_164.dng",
+  "base": "valid_14.dng",
+  "mutation": "truncate",
+  "size": 1459,
+  "offsets": [
+   {
+    "offset": 1459,
+    "detail": "truncate to 1459 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_165.dng",
+  "base": "valid_15.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 479"
+   },
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 216644"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 1273"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_166.dng",
+  "base": "valid_16.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_167.dng",
+  "base": "valid_17.dng",
+  "mutation": "compression+truncate",
+  "size": 2680,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 14"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 65535"
+   },
+   {
+    "offset": 2680,
+    "detail": "truncate to 2680 of 2736 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_168.dng",
+  "base": "valid_18.dng",
+  "mutation": "truncate",
+  "size": 10030,
+  "offsets": [
+   {
+    "offset": 10030,
+    "detail": "truncate to 10030 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_169.dng",
+  "base": "valid_19.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 151187"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 7"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 1092943"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 4120"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_170.dng",
+  "base": "valid_20.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_171.dng",
+  "base": "valid_21.dng",
+  "mutation": "compression",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32773"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 24"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_172.dng",
+  "base": "valid_22.dng",
+  "mutation": "truncate",
+  "size": 604076,
+  "offsets": [
+   {
+    "offset": 604076,
+    "detail": "truncate to 604076 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_173.dng",
+  "base": "valid_23.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 467305"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 1223302"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 1425168"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_174.dng",
+  "base": "valid_24.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_175.dng",
+  "base": "valid_25.dng",
+  "mutation": "compression+truncate",
+  "size": 839,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 34892"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 9"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 0"
+   },
+   {
+    "offset": 839,
+    "detail": "truncate to 839 of 988 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_176.dng",
+  "base": "valid_26.dng",
+  "mutation": "truncate",
+  "size": 351,
+  "offsets": [
+   {
+    "offset": 351,
+    "detail": "truncate to 351 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_177.dng",
+  "base": "valid_27.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 6"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 1"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 211175"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_178.dng",
+  "base": "valid_28.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 0"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 0"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_179.dng",
+  "base": "valid_29.dng",
+  "mutation": "compression",
+  "size": 2736,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 24"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_180.dng",
+  "base": "valid_30.dng",
+  "mutation": "truncate",
+  "size": 14709,
+  "offsets": [
+   {
+    "offset": 14709,
+    "detail": "truncate to 14709 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_181.dng",
+  "base": "valid_31.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 104997"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 5"
+   },
+   {
+    "offset": 90,
+    "tag": 271,
+    "detail": "tag 271 value-offset -> 992887"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_182.dng",
+  "base": "valid_32.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 4294967295"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 65535"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_183.dng",
+  "base": "valid_33.dng",
+  "mutation": "compression+truncate",
+  "size": 59,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 0"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 32"
+   },
+   {
+    "offset": 59,
+    "detail": "truncate to 59 of 131763 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_184.dng",
+  "base": "valid_34.dng",
+  "mutation": "truncate",
+  "size": 350496,
+  "offsets": [
+   {
+    "offset": 350496,
+    "detail": "truncate to 350496 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_185.dng",
+  "base": "valid_35.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 511455"
+   },
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 511901"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 661205"
+   },
+   {
+    "offset": 8,
+    "tag": "IFDcount",
+    "detail": "IFD entry count 24 -> 31"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_186.dng",
+  "base": "valid_36.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 0"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_187.dng",
+  "base": "valid_37.dng",
+  "mutation": "compression",
+  "size": 988,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 0"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_188.dng",
+  "base": "valid_38.dng",
+  "mutation": "truncate",
+  "size": 51,
+  "offsets": [
+   {
+    "offset": 51,
+    "detail": "truncate to 51 of 2484 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_189.dng",
+  "base": "valid_39.dng",
+  "mutation": "misalign",
+  "size": 1273,
+  "offsets": [
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 2"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 1149"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 395"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_190.dng",
+  "base": "valid_40.dng",
+  "mutation": "oversize",
+  "size": 6580,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 65535"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 4294967295"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 1073741824"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_191.dng",
+  "base": "valid_41.dng",
+  "mutation": "compression+truncate",
+  "size": 1989,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 8"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 32"
+   },
+   {
+    "offset": 1989,
+    "detail": "truncate to 1989 of 2736 bytes"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_192.dng",
+  "base": "valid_42.dng",
+  "mutation": "truncate",
+  "size": 8,
+  "offsets": [
+   {
+    "offset": 8,
+    "detail": "truncate to 8 of 17206 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_193.dng",
+  "base": "valid_43.dng",
+  "mutation": "misalign",
+  "size": 49588,
+  "offsets": [
+   {
+    "offset": 102,
+    "tag": 272,
+    "detail": "tag 272 value-offset -> 32561"
+   },
+   {
+    "offset": 258,
+    "tag": 50717,
+    "detail": "tag 50717 value-offset -> 4"
+   },
+   {
+    "offset": 282,
+    "tag": 50728,
+    "detail": "tag 50728 value-offset -> 4"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_194.dng",
+  "base": "valid_44.dng",
+  "mutation": "oversize",
+  "size": 154036,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 1048576"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 4294967295"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 4294967295"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_195.dng",
+  "base": "valid_45.dng",
+  "mutation": "compression",
+  "size": 131763,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 32767"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 1"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_196.dng",
+  "base": "valid_46.dng",
+  "mutation": "truncate",
+  "size": 310766,
+  "offsets": [
+   {
+    "offset": 310766,
+    "detail": "truncate to 310766 of 614836 bytes"
+   }
+  ],
+  "result": "RESULT open=0 unpack=-100009 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_197.dng",
+  "base": "valid_47.dng",
+  "mutation": "misalign",
+  "size": 786868,
+  "offsets": [
+   {
+    "offset": 246,
+    "tag": 50714,
+    "detail": "tag 50714 value-offset -> 3"
+   },
+   {
+    "offset": 270,
+    "tag": 50721,
+    "detail": "tag 50721 value-offset -> 1366558"
+   },
+   {
+    "offset": 114,
+    "tag": 273,
+    "detail": "tag 273 value-offset -> 7"
+   }
+  ],
+  "result": "RESULT open=0 unpack=0 process=0",
+  "failure": null
+ },
+ {
+  "file": "malformed_198.dng",
+  "base": "valid_48.dng",
+  "mutation": "oversize",
+  "size": 1404,
+  "offsets": [
+   {
+    "offset": 30,
+    "tag": 256,
+    "detail": "tag 256 -> 4294967295"
+   },
+   {
+    "offset": 42,
+    "tag": 257,
+    "detail": "tag 257 -> 1048576"
+   },
+   {
+    "offset": 150,
+    "tag": 278,
+    "detail": "tag 278 -> 16777216"
+   },
+   {
+    "offset": 162,
+    "tag": 279,
+    "detail": "tag 279 -> 0"
+   }
+  ],
+  "result": "RESULT open=-2 unpack=-1 process=-1",
+  "failure": null
+ },
+ {
+  "file": "malformed_199.dng",
+  "base": "valid_49.dng",
+  "mutation": "compression+truncate",
+  "size": 52,
+  "offsets": [
+   {
+    "offset": 66,
+    "tag": 259,
+    "detail": "tag 259 -> 7"
+   },
+   {
+    "offset": 54,
+    "tag": 258,
+    "detail": "tag 258 -> 32"
+   },
+   {
+    "offset": 78,
+    "tag": 262,
+    "detail": "tag 262 -> 5"
+   },
+   {
+    "offset": 52,
+    "detail": "truncate to 52 of 988 bytes"
+   }
+  ],
+  "result": "RESULT open=-100009 unpack=-1 process=-1",
+  "failure": null
+ }
+]
