@@ -113,6 +113,9 @@ extern "C"
   DllDef int libraw_unpack(libraw_data_t *);
   DllDef int libraw_unpack_thumb(libraw_data_t *);
   DllDef int libraw_unpack_thumb_ex(libraw_data_t *,int);
+  /* Decode the embedded preview to an 8-bit RGB bitmap. */
+  DllDef libraw_processed_image_t *
+  libraw_dcraw_make_mem_thumb_bitmap(libraw_data_t *lr, int *errc);
   DllDef void libraw_recycle_datastream(libraw_data_t *);
   DllDef void libraw_recycle(libraw_data_t *);
   DllDef void libraw_close(libraw_data_t *);
@@ -150,6 +153,16 @@ extern "C"
                                           const char *filename);
   DllDef int libraw_dcraw_thumb_writer(libraw_data_t *lr, const char *fname);
   DllDef int libraw_dcraw_process(libraw_data_t *lr);
+  /*
+   * Exact crop in dcraw_make_mem_image() coordinates.  The caller owns dst;
+   * colors/bps receive the RGB channel count and bit depth.  Call with
+   * params.no_auto_bright=1, no prior params.cropbox, and a Bayer sensor.
+   * Out-of-range rectangles return LIBRAW_BAD_CROP.
+   */
+  DllDef int libraw_dcraw_process_crop(libraw_data_t *lr, int x, int y,
+                                       int width, int height, void *dst,
+                                       size_t dst_stride, size_t dst_size,
+                                       int *colors, int *bps);
   DllDef libraw_processed_image_t *
   libraw_dcraw_make_mem_image(libraw_data_t *lr, int *errc);
   DllDef libraw_processed_image_t *
@@ -274,6 +287,10 @@ public:
   int dcraw_ppm_tiff_writer(const char *filename);
   int dcraw_thumb_writer(const char *fname);
   int dcraw_process(void);
+  /* Exact crop; see the C declaration for the coordinate and option rules. */
+  int dcraw_process_crop(int x, int y, int width, int height, void *dst,
+                         size_t dst_stride, size_t dst_size, int *colors,
+                         int *bps);
   /* information calls */
   int is_fuji_rotated()
   {
@@ -289,6 +306,8 @@ public:
   /* memory writers */
   virtual libraw_processed_image_t *dcraw_make_mem_image(int *errcode = NULL);
   virtual libraw_processed_image_t *dcraw_make_mem_thumb(int *errcode = NULL);
+  virtual libraw_processed_image_t *
+  dcraw_make_mem_thumb_bitmap(int *errcode = NULL);
   static void dcraw_clear_mem(libraw_processed_image_t *);
 
   /* Additional calls for make_mem_image */

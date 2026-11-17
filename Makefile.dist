@@ -125,7 +125,7 @@ library: lib/libraw.a lib/libraw_r.a
 
 all_samples: bin/raw-identify bin/simple_dcraw  bin/dcraw_emu bin/dcraw_half bin/half_mt bin/mem_image \
              bin/unprocessed_raw bin/4channels bin/multirender_test bin/postprocessing_benchmark \
-	     bin/rawtextdump
+	     bin/rawtextdump bin/roi_crop_test bin/roi_benchmark
 
 install: library
 	@if [ -d /usr/local/include ] ; then cp -R libraw /usr/local/include/ ; else echo 'no /usr/local/include' ; fi
@@ -165,6 +165,12 @@ bin/postprocessing_benchmark: lib/libraw.a samples/postprocessing_benchmark.cpp
 
 bin/mem_image: lib/libraw.a samples/mem_image_sample.cpp
 	${CXX} -DLIBRAW_NOTHREADS  ${CFLAGS} -o bin/mem_image samples/mem_image_sample.cpp -L./lib -lraw  -lm  ${LDADD}
+
+bin/roi_crop_test: lib/libraw.a samples/roi_crop_test.cpp
+	${CXX} ${CFLAGS} -o bin/roi_crop_test samples/roi_crop_test.cpp -L./lib -lraw -lm ${LDADD}
+
+bin/roi_benchmark: lib/libraw.a samples/roi_benchmark.cpp
+	${CXX} ${CFLAGS} -o bin/roi_benchmark samples/roi_benchmark.cpp -L./lib -lraw -lm ${LDADD}
 
 bin/dcraw_half: lib/libraw.a object/dcraw_half.o
 	${CC} -DLIBRAW_NOTHREADS  ${CFLAGS} -o bin/dcraw_half object/dcraw_half.o -L./lib -lraw  -lm -lstdc++  ${LDADD}

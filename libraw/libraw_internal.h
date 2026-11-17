@@ -210,6 +210,8 @@ typedef struct
 
   unsigned dng_frames[LIBRAW_IFD_MAXCOUNT*2]; /* bits: 0-7: shot_select, 8-15: IFD#, 16-31: low 16 bit of newsubfile type */
   unsigned short raw_stride;
+  int roi_mode;
+  unsigned roi_data_maximum;
 } unpacker_data_t;
 
 typedef struct

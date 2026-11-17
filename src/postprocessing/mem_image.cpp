@@ -14,6 +14,168 @@
 
 #include "../../internal/libraw_cxx_defs.h"
 
+#ifndef NO_JPEG
+struct roi_jpeg_error_mgr
+{
+  struct jpeg_error_mgr pub;
+  jmp_buf setjmp_buffer;
+};
+
+static void roi_jpeg_error_exit(j_common_ptr cinfo)
+{
+  roi_jpeg_error_mgr *err = (roi_jpeg_error_mgr *)cinfo->err;
+  longjmp(err->setjmp_buffer, 1);
+}
+#endif
+
+libraw_processed_image_t *LibRaw::dcraw_make_mem_thumb_bitmap(int *errcode)
+{
+  if (!T.thumb)
+  {
+    int rc = unpack_thumb();
+    if (rc != LIBRAW_SUCCESS)
+    {
+      if (errcode)
+        *errcode = rc;
+      return NULL;
+    }
+  }
+
+  if (T.tformat == LIBRAW_THUMBNAIL_BITMAP)
+  {
+    if (INT64(T.twidth) * INT64(T.theight) * INT64(T.tcolors) !=
+        INT64(T.tlength))
+    {
+      if (errcode)
+        *errcode = LIBRAW_DATA_ERROR;
+      return NULL;
+    }
+
+    libraw_processed_image_t *ret = (libraw_processed_image_t *)::malloc(
+        sizeof(libraw_processed_image_t) + T.tlength);
+    if (!ret)
+    {
+      if (errcode)
+        *errcode = ENOMEM;
+      return NULL;
+    }
+    memset(ret, 0, sizeof(libraw_processed_image_t));
+    ret->type = LIBRAW_IMAGE_BITMAP;
+    ret->width = T.twidth;
+    ret->height = T.theight;
+    ret->colors =
+        T.tcolors > 0 && T.tcolors <= 4 ? (ushort)T.tcolors : (ushort)3;
+    ret->bits = 8;
+    ret->data_size = T.tlength;
+    memmove(ret->data, T.thumb, T.tlength);
+    if (errcode)
+      *errcode = LIBRAW_SUCCESS;
+    return ret;
+  }
+
+  if (T.tformat != LIBRAW_THUMBNAIL_JPEG)
+  {
+    if (errcode)
+      *errcode = LIBRAW_UNSUPPORTED_THUMBNAIL;
+    return NULL;
+  }
+
+#ifdef NO_JPEG
+  if (errcode)
+    *errcode = LIBRAW_NOT_IMPLEMENTED;
+  return NULL;
+#else
+  roi_jpeg_error_mgr jerr;
+  struct jpeg_decompress_struct cinfo;
+  memset(&cinfo, 0, sizeof(cinfo));
+  cinfo.err = jpeg_std_error(&jerr.pub);
+  jerr.pub.error_exit = roi_jpeg_error_exit;
+
+  libraw_processed_image_t *ret = NULL;
+  JSAMPARRAY rowbuf = NULL;
+  if (setjmp(jerr.setjmp_buffer))
+  {
+    if (rowbuf)
+      ::free(rowbuf);
+    if (ret)
+      ::free(ret);
+    jpeg_destroy_decompress(&cinfo);
+    if (errcode)
+      *errcode = LIBRAW_DATA_ERROR;
+    return NULL;
+  }
+
+  jpeg_create_decompress(&cinfo);
+  jpeg_mem_src(&cinfo, (unsigned char *)T.thumb, T.tlength);
+  if (jpeg_read_header(&cinfo, TRUE) != JPEG_HEADER_OK)
+  {
+    jpeg_destroy_decompress(&cinfo);
+    if (errcode)
+      *errcode = LIBRAW_DATA_ERROR;
+    return NULL;
+  }
+  cinfo.out_color_space = JCS_RGB;
+  jpeg_start_decompress(&cinfo);
+
+  const unsigned w = cinfo.output_width;
+  const unsigned h = cinfo.output_height;
+  const unsigned colors = cinfo.output_components;
+  if (!w || !h || !colors || colors > 4 || w > USHRT_MAX ||
+      h > USHRT_MAX ||
+      INT64(w) * INT64(h) > INT64(UINT_MAX - sizeof(libraw_processed_image_t)))
+  {
+    jpeg_destroy_decompress(&cinfo);
+    if (errcode)
+      *errcode = LIBRAW_TOO_BIG;
+    return NULL;
+  }
+
+  size_t rowbytes = size_t(w) * colors;
+  size_t datasize = rowbytes * h;
+  if (datasize > UINT_MAX)
+  {
+    jpeg_destroy_decompress(&cinfo);
+    if (errcode)
+      *errcode = LIBRAW_TOO_BIG;
+    return NULL;
+  }
+  ret = (libraw_processed_image_t *)::malloc(sizeof(libraw_processed_image_t) +
+                                             datasize);
+  rowbuf = (JSAMPARRAY)::calloc(1, sizeof(JSAMPROW));
+  if (!ret || !rowbuf)
+  {
+    if (ret)
+      ::free(ret);
+    if (rowbuf)
+      ::free(rowbuf);
+    jpeg_destroy_decompress(&cinfo);
+    if (errcode)
+      *errcode = ENOMEM;
+    return NULL;
+  }
+
+  memset(ret, 0, sizeof(libraw_processed_image_t));
+  ret->type = LIBRAW_IMAGE_BITMAP;
+  ret->width = (ushort)w;
+  ret->height = (ushort)h;
+  ret->colors = (ushort)colors;
+  ret->bits = 8;
+  ret->data_size = (unsigned)datasize;
+
+  while (cinfo.output_scanline < h)
+  {
+    rowbuf[0] = ret->data + size_t(cinfo.output_scanline) * rowbytes;
+    jpeg_read_scanlines(&cinfo, rowbuf, 1);
+  }
+  jpeg_finish_decompress(&cinfo);
+  jpeg_destroy_decompress(&cinfo);
+  ::free(rowbuf);
+  if (errcode)
+    *errcode = LIBRAW_SUCCESS;
+  return ret;
+#endif
+}
+
 libraw_processed_image_t *LibRaw::dcraw_make_mem_thumb(int *errcode)
 {
   if (!T.thumb)

@@ -94,7 +94,9 @@ bin_PROGRAMS =	bin/raw-identify \
 		bin/half_mt \
 		bin/multirender_test \
 		bin/postprocessing_benchmark \
-		bin/dcraw_emu
+		bin/dcraw_emu \
+		bin/roi_crop_test \
+		bin/roi_benchmark
 endif
 
 bin_raw_identify_SOURCES = samples/raw-identify.cpp
@@ -128,6 +130,14 @@ bin_postprocessing_benchmark_LDADD = lib/libraw.la
 bin_mem_image_SOURCES = samples/mem_image_sample.cpp
 bin_mem_image_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)
 bin_mem_image_LDADD = lib/libraw.la
+
+bin_roi_crop_test_SOURCES = samples/roi_crop_test.cpp
+bin_roi_crop_test_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)
+bin_roi_crop_test_LDADD = lib/libraw.la
+
+bin_roi_benchmark_SOURCES = samples/roi_benchmark.cpp
+bin_roi_benchmark_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)
+bin_roi_benchmark_LDADD = lib/libraw.la
 
 bin_dcraw_half_SOURCES = samples/dcraw_half.c
 bin_dcraw_half_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)

@@ -262,6 +262,28 @@ extern "C"
     LibRaw *ip = (LibRaw *)lr->parent_class;
     return ip->dcraw_process();
   }
+  int libraw_dcraw_process_crop(libraw_data_t *lr, int x, int y, int width,
+                                int height, void *dst, size_t dst_stride,
+                                size_t dst_size, int *colors, int *bps)
+  {
+    if (!lr)
+      return EINVAL;
+    LibRaw *ip = (LibRaw *)lr->parent_class;
+    return ip->dcraw_process_crop(x, y, width, height, dst, dst_stride,
+                                  dst_size, colors, bps);
+  }
+  libraw_processed_image_t *
+  libraw_dcraw_make_mem_thumb_bitmap(libraw_data_t *lr, int *errc)
+  {
+    if (!lr)
+    {
+      if (errc)
+        *errc = EINVAL;
+      return NULL;
+    }
+    LibRaw *ip = (LibRaw *)lr->parent_class;
+    return ip->dcraw_make_mem_thumb_bitmap(errc);
+  }
   libraw_processed_image_t *libraw_dcraw_make_mem_image(libraw_data_t *lr,
                                                         int *errc)
   {
