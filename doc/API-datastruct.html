@@ -41,6 +41,8 @@
           <li><a href="#libraw_processed_image_t"> Structure
               libraw_processed_image_t - result set for
               dcraw_make_mem_image()/dcraw_make_mem_thumb() functions </a></li>
+          <li><a href="#libraw_preview_t"> Structure libraw_preview_t -
+              preview size and region request </a></li>
         </ol>
       </li>
       <li><a href="#datastream"> Input abstraction layer </a>
@@ -949,10 +951,12 @@ TODO: For Fuji Super-CCD and images with non-square pixels, correct iwidth/iheig
     </dl>
     <p><a name="libraw_processed_image_t"></a></p>
     <h3>Structure libraw_processed_image_t - result set for
-      dcraw_make_mem_image()/dcraw_make_mem_thumb() functions</h3>
+      dcraw_make_mem_image()/dcraw_make_mem_preview()/dcraw_make_mem_thumb()
+      functions</h3>
     <p>Structure libraw_processed_image_t is produced by call of
-      dcraw_make_mem_image()/dcraw_make_mem_thumb() and contains in-memory image
-      of interpolated data or thumbnail. </p>
+      dcraw_make_mem_image()/dcraw_make_mem_preview()/dcraw_make_mem_thumb()
+      and contains an in-memory image of interpolated data, a preview, or a
+      thumbnail.</p>
     <h4>Data fields:</h4>
     <dl>
       <dt><strong> LibRaw_image_formats type </strong></dt>
@@ -991,6 +995,22 @@ TODO: For Fuji Super-CCD and images with non-square pixels, correct iwidth/iheig
       <dt><strong> unsigned char data[] </strong></dt>
       <dd>Data array itself. Should be interpreted as RGB triplets for bitmap
         type and as JPEG file for JPEG type.</dd>
+    </dl>
+    <p><a name="libraw_preview_t"></a></p>
+    <h3>Structure libraw_preview_t - preview size and region request</h3>
+    <p>This structure is passed to
+      dcraw_make_mem_preview()/libraw_dcraw_make_mem_preview(). All coordinates
+      are in destination preview pixels.</p>
+    <dl>
+      <dt><strong> unsigned int width, height </strong></dt>
+      <dd>Preview canvas dimensions. They must be nonzero and no larger than the
+        corresponding complete processed image dimensions.</dd>
+      <dt><strong> unsigned int crop_left, crop_top </strong></dt>
+      <dd>Top-left corner of the requested region inside the preview canvas.</dd>
+      <dt><strong> unsigned int crop_width, crop_height </strong></dt>
+      <dd>Requested region size. Zero means the remaining width or height from
+        crop_left/crop_top. The rectangle must be fully inside the preview
+        canvas.</dd>
     </dl>
     <p><a name="datastream"></a></p>
     <h2>Input abstraction layer</h2>

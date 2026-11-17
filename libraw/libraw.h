@@ -154,6 +154,9 @@ extern "C"
   libraw_dcraw_make_mem_image(libraw_data_t *lr, int *errc);
   DllDef libraw_processed_image_t *
   libraw_dcraw_make_mem_thumb(libraw_data_t *lr, int *errc);
+  DllDef libraw_processed_image_t *
+  libraw_dcraw_make_mem_preview(libraw_data_t *lr,
+                                const libraw_preview_t *preview, int *errc);
   DllDef void libraw_dcraw_clear_mem(libraw_processed_image_t *);
   /* getters/setters used by 3DLut Creator */
   DllDef void libraw_set_demosaic(libraw_data_t *lr, int value);
@@ -289,6 +292,8 @@ public:
   /* memory writers */
   virtual libraw_processed_image_t *dcraw_make_mem_image(int *errcode = NULL);
   virtual libraw_processed_image_t *dcraw_make_mem_thumb(int *errcode = NULL);
+  libraw_processed_image_t *dcraw_make_mem_preview(
+      const libraw_preview_t *preview, int *errcode = NULL);
   static void dcraw_clear_mem(libraw_processed_image_t *);
 
   /* Additional calls for make_mem_image */

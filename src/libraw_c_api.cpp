@@ -287,6 +287,20 @@ extern "C"
     return ip->dcraw_make_mem_thumb(errc);
   }
 
+  libraw_processed_image_t *
+  libraw_dcraw_make_mem_preview(libraw_data_t *lr,
+                                const libraw_preview_t *preview, int *errc)
+  {
+    if (!lr)
+    {
+      if (errc)
+        *errc = EINVAL;
+      return NULL;
+    }
+    LibRaw *ip = (LibRaw *)lr->parent_class;
+    return ip->dcraw_make_mem_preview(preview, errc);
+  }
+
   void libraw_dcraw_clear_mem(libraw_processed_image_t *p)
   {
     LibRaw::dcraw_clear_mem(p);

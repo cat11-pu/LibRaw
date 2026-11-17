@@ -94,7 +94,8 @@ bin_PROGRAMS =	bin/raw-identify \
 		bin/half_mt \
 		bin/multirender_test \
 		bin/postprocessing_benchmark \
-		bin/dcraw_emu
+		bin/dcraw_emu \
+		bin/preview_region_test
 endif
 
 bin_raw_identify_SOURCES = samples/raw-identify.cpp
@@ -140,3 +141,7 @@ bin_half_mt_LDADD = lib/libraw_r.la
 bin_dcraw_emu_SOURCES = samples/dcraw_emu.cpp
 bin_dcraw_emu_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)
 bin_dcraw_emu_LDADD = lib/libraw.la
+
+bin_preview_region_test_SOURCES = tests/preview_region_test.cpp
+bin_preview_region_test_CPPFLAGS = $(lib_libraw_a_CPPFLAGS)
+bin_preview_region_test_LDADD = lib/libraw.la

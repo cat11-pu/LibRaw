@@ -187,6 +187,16 @@ typedef unsigned long long UINT64;
 
   typedef struct
   {
+    unsigned int width;       /* preview canvas width */
+    unsigned int height;      /* preview canvas height */
+    unsigned int crop_left;   /* crop origin in preview pixels */
+    unsigned int crop_top;
+    unsigned int crop_width;  /* 0: width - crop_left */
+    unsigned int crop_height; /* 0: height - crop_top */
+  } libraw_preview_t;
+
+  typedef struct
+  {
     char guard[4];
     char make[64];
     char model[64];

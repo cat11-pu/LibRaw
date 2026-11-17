@@ -102,6 +102,9 @@
               int stride, int bgr)</a></li>
           <li><a href="#dcraw_make_mem_image">libraw_processed_image_t
               *dcraw_make_mem_image(int *errorcode)</a></li>
+          <li><a href="#dcraw_make_mem_preview">libraw_processed_image_t
+              *dcraw_make_mem_preview(const libraw_preview_t *preview,
+              int *errorcode)</a></li>
           <li><a href="#dcraw_make_mem_thumb">libraw_processed_image_t
               *dcraw_make_mem_thumb(int *errorcode)</a></li>
           <li><a href="#dcraw_clear_mem">void
@@ -734,6 +737,49 @@
     <p><strong>NOTE!</strong> Memory, allocated for return value will not be
       fried at destructor or <strong>LibRaw::recycle</strong> calls. Caller of
       dcraw_make_mem_image should free this memory by call to <a href="#dcraw_clear_mem">LibRaw::dcraw_clear_mem()</a>.</p>
+    <p><a name="dcraw_make_mem_preview"></a></p>
+    <h3>libraw_processed_image_t *dcraw_make_mem_preview(const
+      libraw_preview_t *preview, int *errorcode=NULL) - process a preview-sized
+      region into memory</h3>
+    <p>This is the narrow output interface for raw previews and regions. It
+      calls dcraw_process(), resizes the processed image to
+      <strong>preview-&gt;width</strong> by <strong>preview-&gt;height</strong>
+      using an area-weighted box filter, and then crops the result to the
+      rectangle in preview pixel coordinates. unpack() must be called first.</p>
+    <p>The operation is defined as the following reference pipeline:</p>
+    <ol>
+      <li>process the complete image using the current color parameters;</li>
+      <li>resize the complete processed image to the requested preview size
+        with an area-weighted box filter, using round-half-up integer
+        arithmetic;</li>
+      <li>copy the requested preview rectangle to a packed, row-major bitmap
+        without input or output stride.</li>
+    </ol>
+    <p>Therefore the result is byte-identical to processing the whole image,
+      resizing it with that filter, and cropping it. The resize and crop do not
+      use half_size, so no row or column from outside the requested preview
+      rectangle can leak into the result. The crop fields
+      <strong>crop_left</strong>/<strong>crop_top</strong> are preview pixel
+      coordinates. A zero <strong>crop_width</strong> or
+      <strong>crop_height</strong> means the remaining width or height.</p>
+    <p>This is a narrow output interface, not a partial RAW file reader:
+      LibRaw::unpack() still reads the complete RAW frame. The call exists so
+      applications that only need a preview or a region can avoid exposing or
+      returning any other output size.</p>
+    <p>All color parameters in imgdata.params are retained. The spatial
+      parameters <strong>half_size</strong> and <strong>cropbox</strong> are
+      saved, temporarily disabled while producing the reference frame, and
+      restored before return. The preview size may be smaller than the processed
+      image, but upscaling is rejected. The output type is
+      LIBRAW_IMAGE_BITMAP; <strong>colors</strong> and <strong>bits</strong>
+      follow the current output parameters.</p>
+    <p>Returns NULL in case of an error. Invalid rectangles, a zero preview
+      dimension, or a preview larger than the processed frame set
+      *errorcode to EINVAL. Other failures use the <a href="API-notes.html#errors">LibRaw
+      error code convention</a>.</p>
+    <p><strong>NOTE!</strong> Memory allocated for the return value is not
+      freed by the destructor or <strong>LibRaw::recycle</strong>. Free it with
+      <a href="#dcraw_clear_mem">LibRaw::dcraw_clear_mem()</a>.</p>
     <p><a name="dcraw_make_mem_thumb"></a></p>
     <h3>libraw_processed_image_t *dcraw_make_mem_thumb(int *errorcode=NULL) -
       store unpacked thumbnail into memory buffer</h3>
@@ -752,8 +798,9 @@
       fried at destructor or <strong>LibRaw::recycle</strong> calls. Caller of
       dcraw_make_mem_image should free this memory by call to <a href="#dcraw_clear_mem">LibRaw::dcraw_clear_mem()</a>.</p>
     <h3>void LibRaw::dcraw_clear_mem(libraw_processed_image_t *)</h3>
-    <p>This function will free the memory allocated by <strong>dcraw_make_mem_image</strong>
-      or <strong>dcraw_make_mem_thumb</strong>.</p>
+    <p>This function will free the memory allocated by <strong>dcraw_make_mem_image</strong>,
+      <strong>dcraw_make_mem_preview</strong>, or
+      <strong>dcraw_make_mem_thumb</strong>.</p>
     <p>This is static class member, so call syntax should be
       LibRaw::dcraw_clear_mem(...).</p>
     <p>This call translates directly to free() system function, but it is better

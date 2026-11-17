@@ -14,6 +14,117 @@
 
 #include "../../internal/libraw_cxx_defs.h"
 
+namespace
+{
+static inline INT64 preview_overlap(INT64 a0, INT64 a1, INT64 b0, INT64 b1)
+{
+  INT64 lo = a0 > b0 ? a0 : b0;
+  INT64 hi = a1 < b1 ? a1 : b1;
+  return hi > lo ? hi - lo : 0;
+}
+
+template <typename Sample>
+static void preview_resample_row(const Sample *src, int src_width,
+                                 unsigned preview_width, unsigned left,
+                                 unsigned width, int colors, INT64 *dst)
+{
+  for (unsigned x = 0; x < width; x++)
+  {
+    const unsigned px = left + x;
+    const INT64 x0 = INT64(px) * src_width;
+    const INT64 x1 = INT64(px + 1) * src_width;
+    const unsigned first = unsigned(x0 / preview_width);
+    const unsigned last = unsigned((x1 + preview_width - 1) / preview_width);
+    INT64 *out = dst + (INT64(x) * colors);
+    for (int c = 0; c < colors; c++)
+      out[c] = 0;
+
+    for (unsigned sx = first; sx < last && sx < unsigned(src_width); sx++)
+    {
+      const INT64 sx0 = INT64(sx) * preview_width;
+      const INT64 sx1 = sx0 + preview_width;
+      const INT64 weight = preview_overlap(x0, x1, sx0, sx1);
+      if (!weight)
+        continue;
+      const Sample *sample = src + INT64(sx) * colors;
+      for (int c = 0; c < colors; c++)
+        out[c] += INT64(sample[c]) * weight;
+    }
+  }
+}
+
+template <typename Sample>
+static bool preview_resample(const Sample *src, int src_width, int src_height,
+                             Sample *dst, unsigned preview_width,
+                             unsigned preview_height,
+                             const libraw_preview_t &preview, int colors)
+{
+  const unsigned crop_width =
+      preview.crop_width ? preview.crop_width
+                         : preview_width - preview.crop_left;
+  const unsigned crop_height =
+      preview.crop_height ? preview.crop_height
+                          : preview_height - preview.crop_top;
+  const size_t scalar_count = size_t(crop_width) * colors;
+  INT64 *accum = (INT64 *)malloc(scalar_count * sizeof(INT64));
+  INT64 *row = (INT64 *)malloc(scalar_count * sizeof(INT64));
+  if (!accum || !row)
+  {
+    free(accum);
+    free(row);
+    return false;
+  }
+  const INT64 total_weight = INT64(src_width) * src_height;
+
+  for (unsigned y = 0; y < crop_height; y++)
+  {
+    const unsigned py = preview.crop_top + y;
+    const INT64 sy0 = INT64(py) * src_height;
+    const INT64 sy1 = INT64(py + 1) * src_height;
+    const unsigned sy_first = unsigned(sy0 / preview_height);
+    const unsigned sy_last =
+        unsigned((sy1 + preview_height - 1) / preview_height);
+    memset(accum, 0, scalar_count * sizeof(INT64));
+
+    for (unsigned sy = sy_first; sy < sy_last && sy < unsigned(src_height);
+         sy++)
+    {
+      const INT64 py0 = INT64(sy) * preview_height;
+      const INT64 py1 = py0 + preview_height;
+      const INT64 weight = preview_overlap(sy0, sy1, py0, py1);
+      if (!weight)
+        continue;
+
+      preview_resample_row(src + INT64(sy) * src_width * colors, src_width,
+                           preview_width, preview.crop_left, crop_width, colors,
+                           row);
+      for (size_t i = 0; i < scalar_count; i++)
+        accum[i] += row[i] * weight;
+    }
+
+    for (unsigned x = 0; x < crop_width; x++)
+    {
+      Sample *out = dst + (INT64(y) * crop_width + x) * colors;
+      for (int c = 0; c < colors; c++)
+      {
+        INT64 value =
+            (accum[INT64(x) * colors + c] + total_weight / 2) / total_weight;
+        const INT64 maximum =
+            sizeof(Sample) == 1 ? INT64((1U << 8) - 1)
+                                : INT64((1U << 16) - 1);
+        if (value > maximum)
+          value = maximum;
+        out[c] = Sample(value);
+      }
+    }
+  }
+
+  free(accum);
+  free(row);
+  return true;
+}
+} // namespace
+
 libraw_processed_image_t *LibRaw::dcraw_make_mem_thumb(int *errcode)
 {
   if (!T.thumb)
@@ -300,6 +411,139 @@ libraw_processed_image_t *LibRaw::dcraw_make_mem_image(int *errcode)
   ret->data_size = ds;
   copy_mem_image(ret->data, stride, 0);
 
+  return ret;
+}
+
+libraw_processed_image_t *
+LibRaw::dcraw_make_mem_preview(const libraw_preview_t *preview, int *errcode)
+{
+  if (!preview || !preview->width || !preview->height)
+  {
+    if (errcode)
+      *errcode = EINVAL;
+    return NULL;
+  }
+
+  if (preview->crop_left >= preview->width ||
+      preview->crop_top >= preview->height)
+  {
+    if (errcode)
+      *errcode = EINVAL;
+    return NULL;
+  }
+  const unsigned crop_width =
+      preview->crop_width ? preview->crop_width
+                          : preview->width - preview->crop_left;
+  const unsigned crop_height =
+      preview->crop_height ? preview->crop_height
+                           : preview->height - preview->crop_top;
+  if (!crop_width || !crop_height ||
+      crop_width > preview->width - preview->crop_left ||
+      crop_height > preview->height - preview->crop_top)
+  {
+    if (errcode)
+      *errcode = EINVAL;
+    return NULL;
+  }
+
+  const int saved_half_size = O.half_size;
+  unsigned saved_cropbox[4];
+  memmove(saved_cropbox, O.cropbox, sizeof(saved_cropbox));
+  O.half_size = 0;
+  O.cropbox[0] = O.cropbox[1] = 0;
+  O.cropbox[2] = O.cropbox[3] = UINT_MAX;
+
+  int rc = dcraw_process();
+
+  O.half_size = saved_half_size;
+  memmove(O.cropbox, saved_cropbox, sizeof(saved_cropbox));
+  if (rc != LIBRAW_SUCCESS)
+  {
+    if (errcode)
+      *errcode = rc;
+    return NULL;
+  }
+
+  int src_width = 0, src_height = 0, colors = 0, bps = 0;
+  get_mem_image_format(&src_width, &src_height, &colors, &bps);
+  if (!src_width || !src_height ||
+      preview->width > unsigned(src_width) ||
+      preview->height > unsigned(src_height) || colors < 1 || colors > 4 ||
+      (bps != 8 && bps != 16))
+  {
+    if (errcode)
+      *errcode = EINVAL;
+    return NULL;
+  }
+
+  const int sample_bytes = bps / 8;
+  const INT64 src_stride = INT64(src_width) * colors * sample_bytes;
+  const INT64 src_size = INT64(src_height) * src_stride;
+  const INT64 dst_stride = INT64(crop_width) * colors * sample_bytes;
+  const INT64 dst_size = INT64(crop_height) * dst_stride;
+  if (src_size < 0 || (uint64_t)src_size > uint64_t(SIZE_MAX) ||
+      dst_size < 0 || dst_size > INT64(UINT_MAX) ||
+      uint64_t(dst_size) + sizeof(libraw_processed_image_t) >
+          uint64_t(SIZE_MAX))
+  {
+    if (errcode)
+      *errcode = LIBRAW_TOO_BIG;
+    return NULL;
+  }
+
+  unsigned char *src = (unsigned char *)malloc(size_t(src_size));
+  if (!src)
+  {
+    if (errcode)
+      *errcode = ENOMEM;
+    return NULL;
+  }
+  rc = copy_mem_image(src, int(src_stride), 0);
+  if (rc != LIBRAW_SUCCESS)
+  {
+    free(src);
+    if (errcode)
+      *errcode = rc;
+    return NULL;
+  }
+
+  libraw_processed_image_t *ret = (libraw_processed_image_t *)::malloc(
+      sizeof(libraw_processed_image_t) + size_t(dst_size));
+  if (!ret)
+  {
+    free(src);
+    if (errcode)
+      *errcode = ENOMEM;
+    return NULL;
+  }
+  memset(ret, 0, sizeof(libraw_processed_image_t));
+  ret->type = LIBRAW_IMAGE_BITMAP;
+  ret->height = ushort(crop_height);
+  ret->width = ushort(crop_width);
+  ret->colors = ushort(colors);
+  ret->bits = ushort(bps);
+  ret->data_size = unsigned(dst_size);
+
+  bool resampled;
+  if (bps == 8)
+    resampled = preview_resample(src, src_width, src_height, ret->data,
+                                 preview->width, preview->height, *preview,
+                                 colors);
+  else
+    resampled = preview_resample((const ushort *)src, src_width, src_height,
+                                 (ushort *)ret->data, preview->width,
+                                 preview->height, *preview, colors);
+
+  free(src);
+  if (!resampled)
+  {
+    ::free(ret);
+    if (errcode)
+      *errcode = ENOMEM;
+    return NULL;
+  }
+  if (errcode)
+    *errcode = 0;
   return ret;
 }
 
