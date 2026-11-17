@@ -102,23 +102,42 @@ void LibRaw::border_interpolate(int border)
   unsigned row, col, y, x, f, c, sum[8];
 
   for (row = 0; row < height; row++)
-    for (col = 0; col < width; col++)
+  {
+    /* Middle rows touch only the [0,border) and [width-border,width)
+       bands; top/bottom rows are processed in full. This is exactly the
+       pixel set of the original single-loop version (each output pixel
+       depends only on the neighbors' own channels, so the evaluation
+       order does not matter). */
+    unsigned cfrom[2], cto[2];
+    int nseg = 1;
+    cfrom[0] = 0;
+    cto[0] = width;
+    if (row >= (unsigned)border && row < (unsigned)(height - border) &&
+        width > 2 * (unsigned)border)
     {
-      if (col == (unsigned)border && row >= (unsigned)border && row < (unsigned)(height - border))
-        col = width - border;
-      memset(sum, 0, sizeof sum);
-      for (y = row - 1; y != row + 2; y++)
-        for (x = col - 1; x != col + 2; x++)
-          if (y < height && x < width)
-          {
-            f = fcol(y, x);
-            sum[f] += image[y * width + x][f];
-            sum[f + 4]++;
-          }
-      f = fcol(row, col);
-      FORC(unsigned(colors)) if (c != f && sum[c + 4]) image[row * width + col][c] =
-          sum[c] / sum[c + 4];
+      nseg = 2;
+      cto[0] = border;
+      cfrom[1] = width - border;
+      cto[1] = width;
     }
+    for (int s = 0; s < nseg; s++)
+      for (col = cfrom[s]; col < cto[s]; col++)
+      {
+        memset(sum, 0, sizeof sum);
+        for (y = row - 1; y != row + 2; y++)
+          for (x = col - 1; x != col + 2; x++)
+            if (y < height && x < width)
+            {
+              f = fcol(y, x);
+              sum[f] += image[y * width + x][f];
+              sum[f + 4]++;
+            }
+        f = fcol(row, col);
+        FORC(unsigned(colors)) if (c != f && sum[c + 4]) image[row * width +
+                                                                    col][c] =
+            sum[c] / sum[c + 4];
+      }
+  }
 }
 
 void LibRaw::lin_interpolate_loop(int *code, int size)
@@ -145,8 +164,7 @@ void LibRaw::lin_interpolate_loop(int *code, int size)
 
 void LibRaw::lin_interpolate()
 {
-  std::vector<int> code_buffer(16 * 16 * 32);
-  int* code = &code_buffer[0], size = 16, *ip, sum[4];
+  int code[16 * 16 * 32], size = 16, *ip, sum[4];
   int f, c, x, y, row, col, shift, color;
 
   RUN_CALLBACK(LIBRAW_PROGRESS_INTERPOLATE, 0, 3);
@@ -154,6 +172,13 @@ void LibRaw::lin_interpolate()
   if (filters == 9)
     size = 6;
   border_interpolate(1);
+  if (filters > 1000 && colors == 3 && bayer2x2_standard())
+  {
+    RUN_CALLBACK(LIBRAW_PROGRESS_INTERPOLATE, 1, 3);
+    lin_interpolate_bayer3();
+    RUN_CALLBACK(LIBRAW_PROGRESS_INTERPOLATE, 2, 3);
+    return;
+  }
   for (row = 0; row < size; row++)
     for (col = 0; col < size; col++)
     {
@@ -183,6 +208,76 @@ void LibRaw::lin_interpolate()
   RUN_CALLBACK(LIBRAW_PROGRESS_INTERPOLATE, 1, 3);
   lin_interpolate_loop(code, size);
   RUN_CALLBACK(LIBRAW_PROGRESS_INTERPOLATE, 2, 3);
+}
+
+/* Returns true when the CFA is a standard 2x2 Bayer tile (one R, one B,
+   two diagonal greens) repeated over the whole sensor. FC() has a row
+   period of 8, so rows 2..7 are checked against rows 0..1. */
+bool LibRaw::bayer2x2_standard()
+{
+  int t[4] = {FC(0, 0), FC(0, 1), FC(1, 0), FC(1, 1)};
+  for (int i = 0; i < 4; i++)
+    if (t[i] > 2) // 3-color patterns only
+      return false;
+  // The two greens must sit on one diagonal, R and B on the other.
+  if (!((t[0] == 1 && t[3] == 1 && t[1] != 1 && t[2] != 1 && t[1] != t[2]) ||
+        (t[1] == 1 && t[2] == 1 && t[0] != 1 && t[3] != 1 && t[0] != t[3])))
+    return false;
+  for (int r = 2; r < 8; r++)
+    if (FC(r, 0) != FC(r & 1, 0) || FC(r, 1) != FC(r & 1, 1))
+      return false;
+  return true;
+}
+
+/* Specialized bilinear interpolation for standard 2x2 Bayer CFA with
+   3 colors. Produces bit-exact the same output as the generic
+   lin_interpolate_loop(): at a green pixel the two missing channels are
+   (a+b)>>1 of the axial neighbor pairs, at a red/blue pixel green is
+   (g1+g2+g3+g4)>>2 and the other color is the 4 diagonal average >>2,
+   which is exactly what the generic code table computes
+   ((sum*128)>>8 == sum>>1, (2*sum*32)>>8 == (sum*64)>>8 == sum>>2). */
+void LibRaw::lin_interpolate_bayer3()
+{
+  const int w4 = width * 4;
+  const int w = width, h = height;
+  for (int row = 1; row < h - 1; row++)
+  {
+    int f[2], hc[2], vc[2];
+    for (int p = 0; p < 2; p++)
+    {
+      f[p] = FC(row, p);
+      hc[p] = FC(row, p ^ 1); // horizontal neighbors' color (green px)
+      vc[p] = FC(row + 1, p); // vertical neighbors' color (green px)
+    }
+    ushort *pix = &image[row * w + 1][0];
+    int col = 1;
+    for (; col + 1 < w - 1; col += 2, pix += 8)
+    {
+#define LIN_PIX(P, PAR)                                                        \
+  do                                                                           \
+  {                                                                            \
+    if (f[PAR] == 1)                                                           \
+    {                                                                          \
+      (P)[hc[PAR]] = ((P)[hc[PAR] - 4] + (P)[hc[PAR] + 4]) >> 1;               \
+      (P)[vc[PAR]] = ((P)[vc[PAR] - w4] + (P)[vc[PAR] + w4]) >> 1;             \
+    }                                                                          \
+    else                                                                       \
+    {                                                                          \
+      (P)[1] = ((P)[1 - 4] + (P)[1 + 4] + (P)[1 - w4] + (P)[1 + w4]) >> 2;     \
+      int o = 2 - f[PAR];                                                      \
+      (P)[o] = ((P)[o - w4 - 4] + (P)[o - w4 + 4] + (P)[o + w4 - 4] +          \
+                (P)[o + w4 + 4]) >> 2;                                         \
+    }                                                                          \
+  } while (0)
+      LIN_PIX(pix, 1);
+      LIN_PIX(pix + 4, 0);
+    }
+    if (col < w - 1) // odd tail pixel, col is always odd here
+    {
+      LIN_PIX(pix, 1);
+    }
+#undef LIN_PIX
+  }
 }
 
 /*

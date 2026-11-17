@@ -139,13 +139,34 @@ int LibRaw::raw2image(void)
       else
       {
         int row, col;
-        for (row = 0; row < copyheight; row++)
-          for (col = 0; col < copywidth; col++)
-            imgdata.image[((row) >> IO.shrink) * S.iwidth +
-                          ((col) >> IO.shrink)][fcol(row, col)] =
-                imgdata.rawdata
-                    .raw_image[(row + S.top_margin) * S.raw_pitch / 2 +
-                               (col + S.left_margin)];
+        if (imgdata.idata.filters > 1000 && !IO.shrink)
+        {
+          // Fast path: row pointers + per-row CFA colors, pixels in pairs.
+          for (row = 0; row < copyheight; row++)
+          {
+            const unsigned short *src =
+                &imgdata.rawdata
+                     .raw_image[(row + S.top_margin) * S.raw_pitch / 2 +
+                                S.left_margin];
+            unsigned short *dst = &imgdata.image[row * S.iwidth][0];
+            const int c0 = FC(row, 0), c1 = FC(row, 1);
+            for (col = 0; col + 1 < copywidth; col += 2)
+            {
+              dst[col * 4 + c0] = src[col];
+              dst[col * 4 + 4 + c1] = src[col + 1];
+            }
+            if (col < copywidth)
+              dst[col * 4 + ((col & 1) ? c1 : c0)] = src[col];
+          }
+        }
+        else
+          for (row = 0; row < copyheight; row++)
+            for (col = 0; col < copywidth; col++)
+              imgdata.image[((row) >> IO.shrink) * S.iwidth +
+                            ((col) >> IO.shrink)][fcol(row, col)] =
+                  imgdata.rawdata
+                      .raw_image[(row + S.top_margin) * S.raw_pitch / 2 +
+                                 (col + S.left_margin)];
       }
     }
     else // if(decoder_info.decoder_flags & LIBRAW_DECODER_LEGACY)
@@ -274,13 +295,66 @@ void LibRaw::copy_bayer(unsigned short cblack[4], unsigned short *dmaxp)
 {
   // Both cropped and uncropped
   int maxHeight = MIN(int(S.height),int(S.raw_height)-int(S.top_margin));
+  // Fast path: bit-packed Bayer CFA, no shrinking. Colors alternate with
+  // period 2 per row, so they (and the black levels) are hoisted out of
+  // the pixel loop and pixels are processed in pairs.
+  const bool fast_rows = imgdata.idata.filters > 1000 && !IO.shrink;
+  const int maxCol =
+      MIN(int(S.width), int(S.raw_width) - int(S.left_margin));
 #if defined(LIBRAW_USE_OPENMP)
-#pragma omp parallel for schedule(dynamic) default(none) shared(dmaxp) firstprivate(cblack, maxHeight)
+#pragma omp parallel for schedule(dynamic) default(none) shared(dmaxp) firstprivate(cblack, maxHeight, maxCol, fast_rows)
 #endif
   for (int row = 0; row < maxHeight ; row++)
   {
     int col;
     unsigned short ldmax = 0;
+    if (fast_rows)
+    {
+      const unsigned short *src =
+          &imgdata.rawdata
+               .raw_image[(row + S.top_margin) * S.raw_pitch / 2 +
+                          S.left_margin];
+      unsigned short *dst = &imgdata.image[row * S.iwidth][0];
+      const int c0 = FC(row, 0), c1 = FC(row, 1);
+      const unsigned cb0 = cblack[c0], cb1 = cblack[c1];
+      for (col = 0; col + 1 < maxCol; col += 2)
+      {
+        unsigned v0 = src[col], v1 = src[col + 1];
+        if (v0 > cb0)
+        {
+          v0 -= cb0;
+          if (v0 > ldmax)
+            ldmax = (unsigned short)v0;
+        }
+        else
+          v0 = 0;
+        if (v1 > cb1)
+        {
+          v1 -= cb1;
+          if (v1 > ldmax)
+            ldmax = (unsigned short)v1;
+        }
+        else
+          v1 = 0;
+        dst[col * 4 + c0] = (unsigned short)v0;
+        dst[col * 4 + 4 + c1] = (unsigned short)v1;
+      }
+      if (col < maxCol) // odd tail pixel
+      {
+        unsigned v = src[col];
+        unsigned cb = (col & 1) ? cb1 : cb0;
+        if (v > cb)
+        {
+          v -= cb;
+          if (v > ldmax)
+            ldmax = (unsigned short)v;
+        }
+        else
+          v = 0;
+        dst[col * 4 + ((col & 1) ? c1 : c0)] = (unsigned short)v;
+      }
+    }
+    else
     for (col = 0; col < S.width && col + S.left_margin < S.raw_width; col++)
     {
       unsigned short val =

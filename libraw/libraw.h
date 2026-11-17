@@ -456,6 +456,8 @@ protected:
   void pre_interpolate();
   void border_interpolate(int border);
   void lin_interpolate();
+  void lin_interpolate_bayer3();
+  bool bayer2x2_standard();
   void vng_interpolate();
   void ppg_interpolate();
   void cielab(ushort rgb[3], short lab[3]);
